@@ -7,7 +7,7 @@ from src.schemas.partner_schema import PartnerDeserializeSchema, PartnerSerializ
 from src.utils.authorization import authorization
 
 class PartnerController(Resource):
-    # method_decorators = [authorization]
+    method_decorators = {'get': [authorization]}
     def post(self, **kwargs):
         if(request.data):
             request_json = request.get_json()
@@ -35,9 +35,8 @@ class PartnerController(Resource):
         partner_schema = PartnerSerializeSchema()
 
         session = Session()
-        query = session.query(PartnerModel).filter(PartnerModel.user==kwargs["user"]["id"])
+        query = session.query(PartnerModel).filter(PartnerModel.user==kwargs["user"]["id"]).one()
         session.close()
         
-        partners = [partner_schema.dump(partner) for partner in query]
-        return partners, 200
+        return {"partner": partner_schema.dump(query)}, 200
 
