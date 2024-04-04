@@ -6,8 +6,8 @@ from src.controllers.partner_controller import PartnerController
 def create_app():
     app = Flask(__name__)
     api = Api(app)
-    api.add_resource(Ping, '/partners/ping')
-    api.add_resource(PartnerController, '/partners')
+    api.add_resource(Ping, '/partner/ping')
+    api.add_resource(PartnerController, '/partner')
     return app
 
 if __name__ == "__main__":
