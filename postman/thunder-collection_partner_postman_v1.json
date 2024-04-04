@@ -11,7 +11,7 @@
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "localhost:6650/partners",
+                    "raw": "localhost:6650/partner",
                     "path": [
                         "partners"
                     ],
@@ -37,7 +37,7 @@
             "request": {
                 "method": "POST",
                 "url": {
-                    "raw": "localhost:6650/partners",
+                    "raw": "localhost:6650/partner",
                     "path": [
                         "partners"
                     ],
