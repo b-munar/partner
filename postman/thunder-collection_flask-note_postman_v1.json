@@ -1,19 +1,19 @@
 {
     "info": {
         "_postman_id": "a0c6cb37-1021-4f5c-b310-b6e7129e457f",
-        "name": "flask-note",
+        "name": "flask-partner",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": ""
     },
     "item": [
         {
-            "name": "Get Notes",
+            "name": "Get Partners",
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "localhost:6150/notes",
+                    "raw": "localhost:6150/partners",
                     "path": [
-                        "notes"
+                        "partners"
                     ],
                     "host": [
                         "localhost"
@@ -33,13 +33,13 @@
             }
         },
         {
-            "name": "Save Notes",
+            "name": "Save Partners",
             "request": {
                 "method": "POST",
                 "url": {
-                    "raw": "localhost:6150/notes",
+                    "raw": "localhost:6150/partners",
                     "path": [
-                        "notes"
+                        "partners"
                     ],
                     "host": [
                         "localhost"
@@ -53,7 +53,7 @@
                             "language": "json"
                         }
                     },
-                    "raw": "{\n \"note\": \"notee\"\n}"
+                    "raw": "{\n \"partner\": \"partnere\"\n}"
                 },
                 "auth": {
                     "type": "bearer",
