@@ -7,7 +7,7 @@ from src.schemas.partner_schema import PartnerDeserializeSchema, PartnerSerializ
 from src.utils.authorization import authorization
 
 class PartnerController(Resource):
-    method_decorators = [authorization]
+    # method_decorators = [authorization]
     def post(self, **kwargs):
         if(request.data):
             request_json = request.get_json()
@@ -21,13 +21,7 @@ class PartnerController(Resource):
             return "", 400
         
         partner_create_dump = partner_create_schema.dump(request_json)
-        partner_create_dump["user"] = kwargs["user"]["id"]
-        
-        # token = kwargs["token"]
-        # If you need to use another microservice,
-        # use this token with the request library,
-        # remember to paste the Bearer before the token
-        
+
         session = Session()
         new_partner = PartnerModel(**partner_create_dump)
         session.add(new_partner)
@@ -35,7 +29,7 @@ class PartnerController(Resource):
 
         partner_created_schema = PartnerSerializeSchema()
         partner_created_dump = partner_created_schema.dump(new_partner)
-        return partner_created_dump, 201
+        return {"partner": partner_created_dump}, 201
     
     def get(self, **kwargs):
         partner_schema = PartnerSerializeSchema()
