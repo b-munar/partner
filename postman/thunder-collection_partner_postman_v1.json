@@ -1,31 +1,31 @@
 {
     "info": {
-        "_postman_id": "a0c6cb37-1021-4f5c-b310-b6e7129e457f",
-        "name": "flask-note",
+        "_postman_id": "7b1a58d9-5828-4c85-91d0-79cae8bd1d70",
+        "name": "partner",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": ""
     },
     "item": [
         {
-            "name": "Get Notes",
+            "name": "Get partnerts",
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "localhost:6150/notes",
+                    "raw": "localhost:6650/partner",
                     "path": [
-                        "notes"
+                        "partners"
                     ],
                     "host": [
                         "localhost"
                     ],
-                    "port": "6150"
+                    "port": "6650"
                 },
                 "auth": {
                     "type": "bearer",
                     "bearer": [
                         {
                             "key": "token",
-                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MmQyNGVhYy0yMDhjLTQ1NjYtOTE2Ny01NWRkODc3MzBlNzMiLCJpYXQiOjE3MDUxOTQ3NDMsImV4cCI6MTcwNTE5ODM0M30.CWQlyNPFAEVDoreJCFdTblFZwURFUsQXYxcauMX4d_U",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOGEzYWQ3Ny03ZDNjLTQ3ZTMtOWM0Mi04NThjYTNlYzUyMjIiLCJpYXQiOjE3MTIxOTM4MjAsImV4cCI6MTcxMjIwNDYyMH0.-J_kVirjoF_70ulIWQv36OsgNa_XdkFjMCPj_y_qtc0",
                             "type": "string"
                         }
                     ]
@@ -33,18 +33,18 @@
             }
         },
         {
-            "name": "Save Notes",
+            "name": "register partners",
             "request": {
                 "method": "POST",
                 "url": {
-                    "raw": "localhost:6150/notes",
+                    "raw": "localhost:6650/partner",
                     "path": [
-                        "notes"
+                        "partners"
                     ],
                     "host": [
                         "localhost"
                     ],
-                    "port": "6150"
+                    "port": "6650"
                 },
                 "body": {
                     "mode": "raw",
@@ -53,17 +53,7 @@
                             "language": "json"
                         }
                     },
-                    "raw": "{\n \"note\": \"notee\"\n}"
-                },
-                "auth": {
-                    "type": "bearer",
-                    "bearer": [
-                        {
-                            "key": "token",
-                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MmQyNGVhYy0yMDhjLTQ1NjYtOTE2Ny01NWRkODc3MzBlNzMiLCJpYXQiOjE3MDUxOTQ3NDMsImV4cCI6MTcwNTE5ODM0M30.CWQlyNPFAEVDoreJCFdTblFZwURFUsQXYxcauMX4d_U",
-                            "type": "string"
-                        }
-                    ]
+                    "raw": "{\n  \"user\": \"28a3ad77-7d3c-47e3-9c42-858ca3ec5222\",\n  \"name\": \"parnert\",\n  \"last_name\": \"parnert\",\n  \"age\": 20,\n  \"profession\": \"cowboy\",\n  \"license\": \"Hunter X\",\n  \"country_birth\": \"Colombia\",\n  \"city_birth\": \"Cali\",\n  \"country_residence\": \"Colombia\",\n  \"city_residence\": \"Elvira\",\n  \"sports\": [\"basketball\"],\n  \"companies\": [\"Uniandes\"],\n  \"type_services\": [\"education\"]\n \n}"
                 }
             }
         }
