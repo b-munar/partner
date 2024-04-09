@@ -16,7 +16,6 @@ docker compose up
 ```
 
 
-El servicio de orchestrator consume el servicio auth, sportmen y subscription. Este servicio ahorra el trabajo de hacer register/login en auth, register/get en sportman y get en subscription.
 
 ## 2. Register Partner
 

@@ -1,8 +1,8 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo-sub/partner:$SHORT_SHA', '.' ]
+    args: [ 'build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo-sub/partner', '.' ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo-sub/partner:$SHORT_SHA']
+    args: [ 'push', 'us-east1-docker.pkg.dev/$PROJECT_ID/repo-sub/partner']
 
 options:
   logging: CLOUD_LOGGING_ONLY
