@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: partner
+  labels:
+    app: partner
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: partner
+  template:
+    metadata:
+      labels:
+        app: partner
+    spec:
+      containers:
+        - name: partner
+          image: my-app-image
+          resources:
+            limits:
+              memory: "60Mi"
+              cpu: "0.08"
+            requests:
+              memory: "60Mi"
+              cpu: "0.08"
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+
+          env:
+            - name: "AUTH_HOST"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_HOST
+            - name: "AUTH_PATH_AUTH"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_PATH_AUTH
+            - name: "AUTH_PORT"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: AUTH_PORT
+
+            - name: "PARTNER_DB_USER"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: PARTNER_DB_USER
+            - name: "PARTNER_DB_HOST"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: PARTNER_DB_HOST
+            - name: "PARTNER_DB_NAME"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: PARTNER_DB_NAME
+            - name: "PARTNER_DB_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: PARTNER_DB_PASSWORD
+            - name: "PARTNER_DB_PORT"
+              valueFrom:
+                secretKeyRef:
+                  name: appsecrets 
+                  key: PARTNER_DB_PORT
+
+
+
+---
+
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: partner-config
+spec:
+  healthCheck:
+    checkIntervalSec: 30
+    port: 80
+    type: HTTP
+    requestPath: /partner/ping
