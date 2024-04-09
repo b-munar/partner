@@ -5,7 +5,7 @@ metadata:
   labels:
     app: partner
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: partner
@@ -19,11 +19,11 @@ spec:
           image: my-app-image
           resources:
             limits:
-              memory: "60Mi"
-              cpu: "0.08"
+              memory: "200Mi"
+              cpu: "1"
             requests:
-              memory: "60Mi"
-              cpu: "0.08"
+              memory: "200Mi"
+              cpu: "1"
           ports:
             - containerPort: 80
           imagePullPolicy: Always
