@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-partner
+  annotations:
+    cloud.google.com/backend-config: '{"default": "partner-config"}'
+spec:
+  type: NodePort
+  selector:
+    app: partner
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 31024
